@@ -5,14 +5,21 @@ while True :
     print("2. Mostrar inventario")
     print("3. Salir")
     try :
-        opcion=int("Elige una opcion del menú:")
+        opcion=int(input("Elige una opcion del menú:"))
     except ValueError:
         print("Por favor, ingresa un número válido.")
         continue
     else:
-        if opcion>=1 or opcion<=3:
+        if opcion>=1 and opcion<=3:
             if opcion==1:
-                for valor, clave in hardware_diccionario.items():
-                    
-                hardware=input("EScribe el componente del hardware que deseas agregar:")
+                i=-1
+                for clave,valor in hardware_diccionario.items():
+                    while hardware==clave:
+                        print("El hardware ya existe en el inventario.")
+                        hardware=input("Ingresa el nombre del hardware:")
+                hardware=input("Ingresa el nombre del hardware:")
+            cantidad=input("Ingresa la cantidad de hardware:")
+            hardware_diccionario[hardware]=cantidad
+            print(f"Se ha agregado {hardware} con cantidad {cantidad} al inventario.")
+            print(hardware_diccionario)
                 
