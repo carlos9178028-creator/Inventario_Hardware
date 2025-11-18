@@ -1,4 +1,4 @@
-hardware={}
+hardware_diccionario={}
 while True :
     print("\nMenú de Inventario de Hardware")
     print("1. Agregar hardware")
@@ -11,4 +11,8 @@ while True :
         continue
     else:
         if opcion>=1 or opcion<=3:
-            
+            if opcion==1:
+                for valor, clave in hardware_diccionario.items():
+                    
+                hardware=input("EScribe el componente del hardware que deseas agregar:")
+                
