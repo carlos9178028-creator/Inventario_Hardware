@@ -26,14 +26,18 @@ def mostrar():
      x=0
      for clave, valor in HArdware_lista.items():
           print(f"{x+1}.-{clave}:{valor}")
+          x+=1
 def eliminar(hardware):
     if hardware in HArdware_lista:
             del HArdware_lista[hardware]
-     
+def agregar(hardware,plus):
+     for clave in HArdware_lista.keys():
+          if clave==hardware:
+               HArdware_lista[hardware]+=plus
 while True:
     cap=menu()
     if cap==1:
-          hardware=input("Ingresa el hardware:")
+          hardware=input("Ingresa el hardware:").upper()
           h=ingresar_hardware(hardware)
     elif cap==2:
          mostrar()
@@ -43,6 +47,10 @@ while True:
         else:
          hardware_del=input("Escribe el hardware que desea eliminar:")
          elim=eliminar(hardware_del)
+    elif cap==4:
+         buscar=input("Ingresa el hardware que desea agregar su cantdad:").upper()
+         plus=int(input("Escriba la cantidad que desea agregar:"))
+         h_plus=agregar(hardware,plus)
 
          
          
