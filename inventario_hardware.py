@@ -1,58 +1,23 @@
-HArdware_lista={}
+import pathlib
+hardware_diccionario={}
 def menu():
+    print("---------")
     print("Menú")
-    print("-------------")
-    print("1. Ingresar hardware")
+    print("----------")
+    print("1. Agregar hardware")
     print("2. Mostrar inventario")
-    print("3.Eliminar hardware existente")
-    print("4. Agregar cantidad nueva a hardware existente ")
-    print("5. Salir")
-    try: 
-         op=int(input("Elige una opcion:"))
-    except ValueError:
-         print("Vuelve a elegir una opción válida")
-    else:
-         if op<1 or op>5:
-              print("La opcion no existe")
-              return menu()
-         return op 
-def ingresar_hardware(hardware):
-     if hardware in HArdware_lista:
-          print(f"{HArdware_lista[hardware]} ya existe")
-     else:
-          cantidad=int(input("Ingresa la cantidad que hay del hardware:"))
-          HArdware_lista[hardware]=cantidad
-def mostrar():
-     x=0
-     for clave, valor in HArdware_lista.items():
-          print(f"{x+1}.-{clave}:{valor}")
-          x+=1
-def eliminar(hardware):
-    if hardware in HArdware_lista:
-            del HArdware_lista[hardware]
-def agregar(hardware,plus):
-     for clave in HArdware_lista.keys():
-          if clave==hardware:
-               HArdware_lista[hardware]+=plus
-while True:
-    cap=menu()
-    if cap==1:
-          hardware=input("Ingresa el hardware:").upper()
-          h=ingresar_hardware(hardware)
-    elif cap==2:
-         mostrar()
-    elif cap==3:
-        if not HArdware_lista:
-              print("Está vació el inventario")
-        else:
-         hardware_del=input("Escribe el hardware que desea eliminar:").upper()
-         elim=eliminar(hardware_del)
-    elif cap==4:
-         buscar=input("Ingresa el hardware que desea agregar su cantdad:").upper()
-         plus=int(input("Escriba la cantidad que desea agregar:"))
-         h_plus=agregar(buscar,plus)
-    else:
-     break 
-
+    print("3.Eliminar Hardware")
+    print("4. Salir")
+hardware=input("Ingresa el hardware que deseas agregar:")
+cantidad=int(input("Ingresa la cantidad del hardware:"))
+hardware_diccionario[hardware]=cantidad
+print(hardware_diccionario)
+inventario=pathlib.Path("prueba.txt")
+if inventario.exists():
+    print("Existe")
+    with open(inventario,"w",encoding="utf-8") as f :
+        f.write(f"{hardware_diccionario}")
+else:
+    print("No existe")
          
          
