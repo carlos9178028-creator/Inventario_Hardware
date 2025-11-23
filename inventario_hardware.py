@@ -45,12 +45,14 @@ while True:
         if not HArdware_lista:
               print("Está vació el inventario")
         else:
-         hardware_del=input("Escribe el hardware que desea eliminar:")
+         hardware_del=input("Escribe el hardware que desea eliminar:").upper()
          elim=eliminar(hardware_del)
     elif cap==4:
          buscar=input("Ingresa el hardware que desea agregar su cantdad:").upper()
          plus=int(input("Escriba la cantidad que desea agregar:"))
-         h_plus=agregar(hardware,plus)
+         h_plus=agregar(buscar,plus)
+    else:
+     break 
 
          
          
