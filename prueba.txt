@@ -1,1 +1,1 @@
-{'Celular': 12, 'Iphone': 20}
+{'CELULAR 20': 2, 'IPHONE': 30}
